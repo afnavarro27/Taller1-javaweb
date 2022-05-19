@@ -62,7 +62,7 @@ public class ProductoController {
             return "redirect:listar2";
         }
 
-        model.put("cliente", producto);
+        model.put("producto", producto);
         model.put("titulo","Editar producto");
         return"form2";
         
