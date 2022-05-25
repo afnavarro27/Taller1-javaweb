@@ -3,46 +3,45 @@ package com.bolsadeideas.springboot.datajpa.app.springbootdatajpa.Models.Entity;
 import java.io.Serializable;
 import java.util.Date;
 
-
-
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
-
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
-
-
+import org.springframework.lang.NonNull;
 
 @Entity
 @Table(name = "productos")
-public class Producto implements Serializable{
+public class Producto implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotEmpty
-    private String productonombre;
-    
+    @NonNull
+    @Column(name = "create_producto")
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date CreateProducto;
+
     @NotNull
     private int cantidad;
 
     @NotNull
     private float precio;
+    
+    @NotEmpty
+    private String productonombre;
 
-
-
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date CreateProducto;
     
 
     public Long getId() {

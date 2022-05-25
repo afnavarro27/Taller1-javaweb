@@ -56,12 +56,12 @@
             </thead>
 
             <tbody>
-                <tr th:each="producto: ${producto}">
-                    <td th:text="${producto.id}"></td>
-                    <td th:text="${producto.productonombre}"></td>
-                    <td th:text="${producto.CreateProducto}"></td>
-                    <td th:text="${producto.cantidad}"></td>
-                    <td th:text="${producto.precio}"></td>
+                <tr th:each="productos: ${producto}">
+                    <td th:text="${productos.id}"></td>
+                    <td th:text="${productos.productonombre}"></td>
+                    <td th:text="${productos.CreateProducto}"></td>
+                    <td th:text="${productos.cantidad}"></td>
+                    <td th:text="${productos.precio}"></td>
                     <td><a th:href="@{/form2/} + ${producto.id}" class="btn btn-primary btn-xs">Editar</a></td>
                     <td><a th:href="@{/eliminar/} + ${producto.id}" class="btn btn-danger btn-xs" onclick="return confirm('Deseas eliminar este registro?')">Eliminar</a></td>
                 </tr>
